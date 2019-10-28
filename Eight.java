@@ -154,14 +154,6 @@ public class Eight implements CustomCollection{
         return flag;
     }
 
-    public String[] getArray() {
-        return array;
-    }
-
-    public void setArray(String[] array) {
-        this.array = array;
-    }
-
     public void setCount(int count) {
         this.count = count;
     }

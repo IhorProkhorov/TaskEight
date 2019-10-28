@@ -5,11 +5,8 @@ import java.util.ArrayList;
 public class RunEight {
 
     public static void main(String[] args) {
-
         Eight eight = new Eight();
-
         Eight eight1 = new Eight();
-
         ArrayList list = new ArrayList();
         list.add("c");
         list.add("e");
@@ -23,32 +20,68 @@ public class RunEight {
 
       //  eight.compare(list);
         long start = System.nanoTime();
-        eight.add("11");
-        eight.add("12");
-        eight.add("13");
-        eight.add("14");
-        eight.add("15");
-        eight.add("16");
+        for (int i = 0; i < 100; i++){
+            eight.add(Integer.toString(i));
+        }
         long finish = System.nanoTime();
         long timeConsumedMillis = finish - start;
+        System.out.println("Время выполнения при добавление 100 элементов по 1-му элементу = " + timeConsumedMillis);
 
-        for (String s: eight.getArray()
-        ) {
-            System.out.print(", " + s);
+        String[] testArray = new String[100];
+        for (int i = 0; i < testArray.length; i++ ){
+            testArray[i] = Integer.toString(i);
         }
-        System.out.println();
-        System.out.println("Время выполнения при добавление на 1 элемент = " + timeConsumedMillis);
-        String[] testArray = {"11", "12", "13", "14", "15", "16"};
         long start1 = System.nanoTime();
         eight1.addAll(testArray);
         long finish1 = System.nanoTime();
         long timeConsumedMillis1 = finish1 - start1;
-        for (String s: eight1.getArray()
-        ) {
-            System.out.print(", " + s);
-        }
-        System.out.println();
         System.out.println("Время выполнения при добавление на 60% = " + timeConsumedMillis1);
+
+        eight.clear();
+        String[] arrFor10000 = {"1", "2", "3", "4", "5", "6", "7", "8", "9" , "10"};
+        eight.addAll(arrFor10000);
+        eight1.addAll(arrFor10000);
+
+        long startFor10000Elemen = System.nanoTime();
+        for (int i = 0; i < 10000; i++){
+            eight.add(Integer.toString(i));
+        }
+        long finishFor10000Elemen = System.nanoTime();
+        long timeConsumedMillisFor10000Elemen = finishFor10000Elemen - startFor10000Elemen;
+        System.out.println("Время выполнения при добавление 10000 элементов по 1-му элементу = " + timeConsumedMillisFor10000Elemen);
+
+        String[] testArrayFor10000 = new String[10000];
+        for (int i = 0; i < testArrayFor10000.length; i++ ){
+            testArrayFor10000[i] = Integer.toString(i);
+        }
+        long startFor10000AddArray = System.nanoTime();
+        eight1.addAll(testArrayFor10000);
+        long finishFor10000AddArray = System.nanoTime();
+        long timeConsumedMillisFor10000AddArray = finishFor10000AddArray - startFor10000AddArray;
+        System.out.println("Время выполнения при добавление на 60% = " + timeConsumedMillisFor10000AddArray);
+
+        eight.clear();
+        String[] arrFor1000000 = {"1", "2", "3", "4", "5", "6", "7", "8", "9" , "10"};
+        eight.addAll(arrFor1000000);
+        eight1.addAll(arrFor1000000);
+
+        long startFor1000000Elemen = System.nanoTime();
+        for (int i = 0; i < 1000000; i++){
+            eight.add(Integer.toString(i));
+        }
+        long finishFor1000000Elemen = System.nanoTime();
+        long timeConsumedMillisFor1000000Elemen = finishFor1000000Elemen - startFor1000000Elemen;
+        System.out.println("Время выполнения при добавление 1000000 элементов по 1-му элементу = " + timeConsumedMillisFor1000000Elemen);
+
+        String[] testArrayFor1000000 = new String[1000000];
+        for (int i = 0; i < testArrayFor1000000.length; i++ ){
+            testArrayFor1000000[i] = Integer.toString(i);
+        }
+        long startFor1000000AddArray = System.nanoTime();
+        eight1.addAll(testArrayFor1000000);
+        long finishFor1000000AddArray = System.nanoTime();
+        long timeConsumedMillisFor1000000AddArray = finishFor1000000AddArray - startFor1000000AddArray;
+        System.out.println("Время выполнения при добавление на 60% = " + timeConsumedMillisFor1000000AddArray);
 
         /*String[] arr = {"0", "1", "2", "3"};
         eight.addAll(arr);
